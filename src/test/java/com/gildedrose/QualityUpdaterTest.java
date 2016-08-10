@@ -40,4 +40,16 @@ public class QualityUpdaterTest {
         assertThat(item.sellIn).as("sellIn").isEqualTo(-1);
         assertThat(item.quality).as("quality").isEqualTo(0);
     }
+
+    @Test
+    public void updateAgedBrieGivenNonZeroQuality() {
+        final Item item = new Item("Aged Brie", 0, 2);
+
+        final QualityUpdater system = new QualityUpdater();
+        system.updateItemQuality(item);
+
+        assertThat(item.name).as("name").isEqualTo("Aged Brie");
+        assertThat(item.sellIn).as("sellIn").isEqualTo(-1);
+        assertThat(item.quality).as("quality").isEqualTo(4);
+    }
 }

@@ -16,4 +16,16 @@ public class QualityUpdaterTest {
         assertThat(item.sellIn).as("sellIn").isEqualTo(-1);
         assertThat(item.quality).as("quality").isEqualTo(0);
     }
+
+    @Test
+    public void updateBackstage() {
+        final Item item = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0);
+
+        final QualityUpdater system = new QualityUpdater();
+        system.updateItemQuality(item);
+
+        assertThat(item.name).as("name").isEqualTo("Backstage passes to a TAFKAL80ETC concert");
+        assertThat(item.sellIn).as("sellIn").isEqualTo(-1);
+        assertThat(item.quality).as("quality").isEqualTo(0);
+    }
 }
